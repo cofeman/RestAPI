@@ -62,7 +62,7 @@ func TestMessagesIndex(t *testing.T) {
 	}
 
 	if resp.StatusCode != 200 {
-		t.Fatalf("Received non-200 response: %d\n", resp.StatusCode)
+		t.Fatalf("Got non-200 response: %d\n", resp.StatusCode)
 	}
 
 	expected := fmt.Sprintf("[1] %s\n", testMessage)
@@ -75,8 +75,6 @@ func TestMessagesIndex(t *testing.T) {
 	if expected != string(actual) {
 		t.Errorf("Expected the message '%s' got '%s'\n", expected, string(actual))
 	}
-
-	//fmt.Printf("Response: %s\n", string(actual))
 
 }
 
@@ -92,7 +90,7 @@ func TestMessagesAdd(t *testing.T) {
 	}
 
 	if resp.StatusCode != 201 {
-		t.Fatalf("Received non-200 response: %d\n", resp.StatusCode)
+		t.Fatalf("Got non-201 response: %d\n", resp.StatusCode)
 	}
 
 	expected := fmt.Sprint("\n{\"id\":2}\n")
@@ -120,7 +118,7 @@ func TestMessagesGetById(t *testing.T) {
 	}
 
 	if resp.StatusCode != 200 {
-		t.Fatalf("Received non-200 response: %d\n", resp.StatusCode)
+		t.Fatalf("Got non-200 response: %d\n", resp.StatusCode)
 	}
 
 	expected := fmt.Sprintf("\n%s\n", testMessage)
